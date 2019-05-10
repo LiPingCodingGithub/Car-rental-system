@@ -1,0 +1,73 @@
+#container{
+		width: 1100px;
+         margin:0 auto;
+	}
+    #header{
+        height:120px;
+    }
+#header img{
+        float:left;
+        margin-top:15px;
+        display:block;
+    }
+     #header h1{
+        float:left;
+        font-size:48px;
+        margin-top:20px;
+        display:block;
+        font-family:"华文行楷",SimHei,sans-serif;
+     } 
+#lside{
+        width:350px;
+        height:580px;
+        
+        float:left;
+        background:#eee;
+}  
+#lside h1{
+        color:gray;
+        font-size:30px;
+        font-family:SimHei,sans-serif;
+        margin:60px 0px 0px 120px;
+    }
+    #lside h2{
+        font-size:18px;
+        font-family:SimHei,sans-serif;
+        margin-top:24px;
+        margin-left:60px;
+    }
+    #lside input{
+        width:260px;
+        height:30px;
+        margin-left:60px;
+    }
+    #lside button{
+        font-size:25px;
+        background:url(../images/05.png);
+        margin-left:60px;
+        width:260px;
+        margin-top:28px;
+    }
+#rside{
+        width:750px;
+        height:580px;
+        
+        float:left;
+        background:#eee;
+}
+#rside img{
+    margin:120px 0px 0px 80px;
+}
+#rside h1{
+
+        font-size:16px;
+        font-family:SimHei,sans-serif;
+        margin:60px 0px 0px 80px;
+}
+#rside a{
+        margin:15px 0px 0px 80px;
+        font-size:12px; 
+}
+#rside a:hover{
+    color:orange;
+}

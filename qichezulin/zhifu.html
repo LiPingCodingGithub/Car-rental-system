@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>支付方式</title>
+  <link rel="stylesheet" href="./reset.css" />
+  <link rel="stylesheet" href="./css/zhifu.css" />
+  <script src="./js/jquery.js"></script>
+</head>
+    <body>
+    	<div id="container">
+    		<div id="header">
+    			<img src="./images/tubiao.png" alt="" />
+    			<h1>行天下</h1>
+    		</div>
+    		<div id="daohang">
+    		   <ul>
+    			<li><a href="./index.html">网站首页</a></li>
+             <li><a href="./zuche.html">汽车租赁</a></li>
+             <li><a href="./shangmenqusong.html">上门取送</a></li>
+             <li><a href="./gerenzhongxin.html">个人中心</a></li>
+             <li><a href="./guanyuwomen.html">关于我们</a></li>
+             <li>
+                 <a href="./bangzhuzhongxin.html">帮助中心</a>
+             </li>
+    			</ul>
+   			 </div>
+   			 <div id="main">
+   			 	<div id="zhifubao">
+                    <h1>支付宝支付</h1>  
+                    <img src="./images/16.png" alt="" />      
+                </div>
+                <div id="weixin">
+                    <h1>微信支付</h1>
+                    <img src="./images/17.png" alt="" />
+                </div>
+                
+                <div id="jiner">
+                    <div id="zonjiner">
+                        <ul class="h3h feeul">
+                           <li class="">
+                             <span class="fee-txt" style="font-size:24px;">总金额:</span>
+                             <span class="fee-res"><i id="allprice" class="orderTotalPrice" style="font-size:24px;margin-left:20px;">520</i></span>
+                        
+                            </li>
+                           <a href="">
+                               <input type="button" id="zhifu" value="立即支付" style="margin:60px 0 0 0;line-height:30px; font-size:20px; width:200px;"        onclick="zhifu()"/ >
+                           </a>
+                        </ul>
+                    </div>
+                </div>
+   			 </div>
+             <div id="footer">
+                    <div id="footer1">
+                    <ul>
+                        <li><a href="./zucheliucheng.html">租车流程</a></li>
+                        <li><a href="./zhifu.html">支付方式</a></li>
+                        <li><a href="./shiguchuli.html">事故处理</a></li>
+                        <li><a href="./zaixianzixun.html">在线咨询</a></li>
+                        <li><a href="./jiaruwomen.html">加入我们</a></li>
+                    </ul>
+                </div>
+                <div id="lianxifangshi">
+                    <p id="p1">行天下汽车服务有限公司</p>
+                    <p id="p2">地址：广西南宁市邕宁区龙亭路8号</p>
+                    <img src="./images/06.jpg" alt="" />
+
+                    <p id="p3">24小时服务热线: 888-888-8888</p>
+                    
+                </div>
+            </div>
+                
+    	</div>
+    </body>
+</html>
+<script>
+    document.getElementById('allprice').innerHTML = sessionStorage.getItem('price');
+</script>
+
+<script>
+  localStorage.setItem('ip','http://localhost/');
+  localStorage.setItem('folder_qiantaichengxu','qiantaichengxu/');
+  localStorage.setItem('folder_houtai','houtai/');
+
+  sessionStorage.setItem('username','username');
+  sessionStorage.setItem('password','password');
+
+  /*function zhifu(){
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var realname = document.getElementById('realname').value;
+    var email = document.getElementById('email').value;
+    var gender = document.getElementById('gender').value;
+    var tel = document.getElementById('tel').value;
+    $.ajax({
+        type: "POST", //请求方式
+        url: localStorage.getItem('ip')+localStorage.getItem('folder_qiantaichengxu')+'yonghuzhuce.php',
+        dataType: 'text',
+        data:  {
+                'username': username,
+                'password': password,
+                'realname': realname,
+                'gender': gender,
+                'email': email,
+                'tel': tel
+            },//传输的参数
+        success: function(data){
+
+            if (data == 'ok') {
+                sessionStorage.setItem('username',username);
+                sessionStorage.setItem('password',password);
+                alert('注册成功并跳转登录');
+                window.location.href = localStorage.getItem('ip')+'qiantai/qichezulin/index.html'
+            } else {
+                alert('注册失败');
+            }
+          
+        },
+        error:function (Request, textStatus, errorThrown) { 
+            console.log('1:'+JSON.stringify( Request )+'2:'+textStatus+'3:'+errorThrown);
+        } 
+    });
+  }*/
+
+  function zhifu(){
+    var id_car = sessionStorage.getItem('id_car');  //当点击立即支付之后，声明一个字段，然后将从预订页面获取到的值，赋值给这个字段
+    var name_car = sessionStorage.getItem('name_car');
+    var content = sessionStorage.getItem('content');
+    var id_user = sessionStorage.getItem('id_user');
+    var status = sessionStorage.getItem('status');
+    var time_end = sessionStorage.getItem('time_end');
+    var time_start = sessionStorage.getItem('time_start');
+
+
+    $.ajax({
+            type: "POST", //请求方式
+            url: localStorage.getItem('ip')+localStorage.getItem('folder_qiantaichengxu')+'dingdantijiao.php',
+            dataType: 'text',
+            data:  {
+                'id_car' :id_car,  //传输以下数据，通过url地址文件，进行数据的操作
+                'name_car' :name_car,
+                'content' :content,
+                'id_user' :id_user,
+                'status' :status,
+                'time_end' :time_end,
+                'time_start' :time_start
+                
+
+                 /*'id_car' :sessionStorage.getItem('id_car'),
+                'name_car' :sessionStorage.getItem('name_car'),
+                'content' :sessionStorage.getItem('content'),
+                'id_user' :sessionStorage.getItem('id_user'),
+                'status' :sessionStorage.getItem('status'),
+                'time_end' :sessionStorage.getItem('time_end')*/
+                },//传输的参数
+            success:function(msg){
+              alert("hello");
+                alert( msg );//返回的结果
+           },
+           error:function (Request, textStatus, errorThrown) { 
+            alert('1:'+JSON.stringify( Request )+'2:'+textStatus+'3:'+errorThrown);
+        } 
+        });
+  }
+</script>
+ 

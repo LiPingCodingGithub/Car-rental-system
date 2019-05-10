@@ -1,0 +1,168 @@
+ #container{
+        width: 1200px;
+         margin:0 auto;
+    }
+    #header{
+        height:80px;
+
+    }
+    #header img{
+        float:left;
+        margin-top:15px;
+        
+    }
+     #header h1{
+        float:left;
+        font-size:48px;
+        margin-top:20px;
+       
+        font-family:"华文行楷",SimHei,sans-serif;
+     } 
+#daohang{
+    height:70px;
+    width:1100px;
+    
+     background: url(../images/01.png) no-repeat;
+}
+#daohang li{
+        width:183px;
+        height:68px;
+        float:left;
+        
+
+      /*使竖着显示的li变成横着显示*/
+    }
+#daohang a{
+        color:#363636;
+        text-align:center;
+        display:block;
+        font-size:20px;
+        font-family:"微软雅黑";
+        margin:20px 0px 0px;
+}
+#daohang a:hover{
+        /*鼠标放上去的时候*/
+        color:white;/*color用于字体*/
+        
+        display:block;
+        width:185px;
+        height:68px;
+    }
+#daohang2{
+    height:65px;
+    width:1100px;
+    margin-top:2px;
+     background:#eee;
+}
+#daohang2 li{
+        width:183px;
+        height:65px;
+        float:left;
+        
+
+      /*使竖着显示的li变成横着显示*/
+    }
+#daohang2 a{
+        color:#363636;
+        
+        display:block;
+        font-size:20px;
+        font-family:"微软雅黑";
+        margin:20px 0px 0px 5px;
+}
+#daohang2 a:hover{
+        /*鼠标放上去的时候*/
+        color:orange;/*color用于字体*/
+       
+    }
+#daohang2 img{
+    display:block;
+    float:left;
+    margin:10px 0px 0px 40px;
+}
+#main{
+    width:1100px;
+    height:450px;
+    background:#eee;
+    margin-top:10px;
+}
+#lside h1{
+    font-family:"微软雅黑";
+    font-size:30px;
+    margin:10px 0px 0px 40px;
+}
+#lside{
+    width:650px;
+    height:400px;
+    float:left;
+    overflow-y:auto;
+}
+#lside p{
+    display:block;
+    height:40px;
+    font-size:20px;
+    font-family:"微软雅黑";
+     margin:10px 0px 0px 40px;
+}
+
+
+#rside{
+    width:450px;
+    float:left;
+}
+#rside img{
+    margin-top:40px;
+    width:400px;
+    height:300px;
+}
+#footer{
+        width:1100px;
+        height:200px;
+       
+        margin-top:10px;
+        background:#eee;
+    }
+    #footer1{
+        width:1100px;
+        height:48px;
+        background:url(../images/07.png) ;
+    }
+    #footer1 li{
+        width:150px;
+        height:40px;
+        float:left;
+        margin-left:60px;
+    }
+    #footer1 a{
+        color:#363636;
+        
+        display:block;
+        font-size:16px;
+        font-family:"微软雅黑";
+        margin:10px 0px 0px 10px;
+
+    }
+    #lianxifangshi img{
+        margin:0px 0px 0px 450px;
+        display:block;
+        float:left;
+    }
+    #p1{
+        font-size:22px;
+        color:gray;
+        margin:30px 0px 5px 450px;
+    }
+     #lp3{
+        display:block;
+        
+        font-size:18px;
+        color:gray;
+        margin:0px 0px 0px 0px;
+
+     }
+     #p2{
+        font-size:18px;
+        color:gray;
+        margin:0px 0px 0px 450px;
+
+     }

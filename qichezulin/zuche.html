@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>租车</title>
+  <link rel="stylesheet" href="./reset.css" />
+<link rel="stylesheet" href="./css/zuche.css" />
+<script src="./js/jquery.js"></script>
+</head>
+<body>
+    	<div id="container">
+    		
+    		<div id="header">
+    			<img src="./images/tubiao.png" alt="" />
+    			<h1>行天下</h1>
+    		</div>
+    		<div id="daohang">
+    			<ul>
+    				<li><a href="./index.html">网站首页</a></li>
+    				<li><a href="./zuche.html">汽车租赁</a></li>
+                    <li><a href="./shangmenqusong.html">上门取送</a></li>
+                    <li><a href="./gerenzhongxin.html">个人中心</a></li>
+                    <li><a href="./guanyuwomen.html">关于我们</a></li>
+                    <li>
+                        <a href="./bangzhuzhongxin.html">帮助中心</a>
+                    </li>
+    				</ul>
+    		</div>
+    		<div id="main">
+    		    <div class="car">
+              <div id="tupian">
+                <img id="img_'+ret[i].id_car+'" src="'+'../../../houtai/'+ret[i].picture+'" alt="" />
+              </div>
+              <div id="xinxi"><p id="name_car_'+ret[i].id_car+'" >laisilaisi</p><ul><li id="feiyong"><p>单天费用：</p><p id="price_'+ret[i].id_car+'">222</p><p>元</p></li><li id="yuding"><p><a href="./yuding.html" onclick="yuding('+ret[i].id_car+')">预定</a></p></li>
+                <li><p><a onclick="xiangqing(211)" href="./xiangqing.html">查看详情</a></p></li></ul></div></div>
+
+    		</div>
+    		
+    		<div id="footer">
+    			<div id="footer1">
+                    <ul>
+                        <li><a href="./zucheliucheng.html">租车流程</a></li>
+                        <li><a href="./zhifu.html">支付方式</a></li>
+                        <li><a href="./shiguchuli.html">事故处理</a></li>
+                        <li><a href="./zaixianzixun.html">在线咨询</a></li>
+                        <li><a href="./jiaruwomen.html">加入我们</a></li>
+                    </ul>
+                </div>
+                <div id="lianxifangshi">
+                    <p id="p1">行天下汽车服务有限公司</p1>
+                    <p id="p2">地址：广西南宁市邕宁区龙亭路8号</p>
+                    <img src="./images/06.jpg" alt="" />
+
+                    <p id="p3">24小时服务热线: 888-888-8888</p>
+                    
+                </div>
+            </div>
+    		
+    	</div>
+    </body>
+</html>
+<script>
+  sessionStorage.setItem('username','username');
+  sessionStorage.setItem('id_user','2');
+  sessionStorage.setItem('password','password');
+  localStorage.setItem('ip','http://localhost/');
+  localStorage.setItem('folder_qiantaichengxu','qiantaichengxu/');
+  localStorage.setItem('folder_houtai','houtai/');
+
+start();
+
+  function start(){
+    var header = document.getElementById('header');
+    if (localStorage.getItem('username')) {
+        header.innerHTML += '<ul><li id="huanying"><a href="./yonghuzhuce.html">欢迎您：</a></li><li><a href="./xuanzedengluchuangkou.html">'+localStorage.getItem('username')+'</a></li></ul>';
+    } else {
+      header.innerHTML += '<ul id=""><li ><a href="./yonghuzhuce.html">注册</a></li><li ><a href="./xuanzedengluchuangkou.html">登录</a></li></ul>';
+    }
+  }
+
+function opendetail(n){
+    localStorage.setItem('car_id',n);
+    self.location='car_detail_frame';
+  }
+  function create(ret){
+    var values = document.getElementById('main');
+    values.innerHTML = '';
+    for (var i = 0; i < ret.length; i++) {
+      values.innerHTML += '<div class="car"><div id="tupian"><img id="img_'+ret[i].id_car+'" src="'+'../../../houtai/'+ret[i].picture+'" alt="" /></div><div id="xinxi"><p id="name_car_'+ret[i].id_car+'" >'+ret[i].name_car+'</p><ul><li id="feiyong"><p>单天费用：</p><p id="price_'+ret[i].id_car+'">'+ret[i].price+'</p><p>元</p></li><li id="yuding"><p><a href="./yuding.html" onclick="yuding('+ret[i].id_car+')">预定</a></p></li><li><p><a href="./xiangqing.html" onclick="xiangqing('+ret[i].id_car+')">查看详情</a></p></li></ul></div></div>';
+    }
+  }
+  function xiangqing(n){  //当点击-查看详情的时候，就触发调用这个函数
+    sessionStorage.setItem('id_car',n);  //调用函数，进行会话存储，对 id_car 进行保存
+    //window.location.href="./xiangqing.html"; 
+  }
+ function add(){
+    $.ajax({
+        type: "POST", //请求方式
+        url: localStorage.getItem('ip')+localStorage.getItem('folder_qiantaichengxu')+'select_car.php',
+        dataType: 'json',
+        data:  {
+                /*'username': sessionStorage.getItem('username'),
+                'password': sessionStorage.getItem('password'),*/
+
+               //'id_car' :sessionStorage.getItem('id_car')
+
+            },//传输的参数
+        success: function(data){
+          create(data);
+        },
+        error:function (Request, textStatus, errorThrown) { 
+            console.log('1:'+JSON.stringify( Request )+'2:'+textStatus+'3:'+errorThrown);
+        } 
+    });
+  }
+  add();
+  function yuding(n){
+    sessionStorage.setItem('id_car','img_'+n);
+    sessionStorage.setItem('src_img',document.getElementById('img_'+n).src);
+    sessionStorage.setItem('name_car',document.getElementById('name_car_'+n).innerHTML);
+    sessionStorage.setItem('price',document.getElementById('price_'+n).innerHTML);
+   
+    window.location.href = './yuding.html';
+  }
+
+  window.onbeforeunload=function(){
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
+}
+</script>

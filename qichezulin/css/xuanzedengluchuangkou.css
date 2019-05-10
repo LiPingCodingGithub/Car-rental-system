@@ -1,0 +1,60 @@
+#container{
+		width: 1200px;
+         margin:0 auto;
+	}
+    #header{
+        height:120px;
+    }
+    #header img{
+        float:left;
+        margin-top:15px;
+    }
+     #header h1{
+        float:left;
+        font-size:48px;
+        margin-top:20px;
+        display:block;
+        font-family:"华文行楷",SimHei,sans-serif;
+     } 
+#main{
+    width:1100px;
+    height:500px;
+    background: #eee;
+}
+#lside{
+    float:left;
+}
+
+#lside img{
+    width:500px;
+    height:400px;
+    margin:40px 0 0 40px;
+    display:block;
+    float:left;
+}
+#rside{
+    float:left;
+}
+#rside h1{
+    font-size:24px;
+    margin:100px 0 0 110px;
+    font-family:"微软雅黑",SimHei,sans-serif;
+}
+#rside li{
+    font-size:18px;
+     font-family:"微软雅黑",SimHei,sans-serif;
+}
+#guanliyuan{
+    margin:80px 0 0 110px;
+}
+#yonghu{
+     margin:40px 0 0 110px;
+}
+#rside a{
+    color:#363636;
+}
+#main a:hover{
+    color:red;
+}
+
+   

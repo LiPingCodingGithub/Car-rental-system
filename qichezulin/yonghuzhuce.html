@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>管理员注册页面</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+
+<link rel="stylesheet" href="./css/yonghuzhuce.css" />
+<link rel="stylesheet" href="./reset.css" />
+<script src="./js/jquery.js"></script>
+
+</head>
+    <body>
+    	<div id="container">
+    		<div class="clr"></div>
+    		<div id="header">
+    			<img src="./images/tubiao.png" alt="" />
+    	 	    <h1>行天下</h1>
+    		</div>
+    		<div id="main">
+               <div id="lside">
+                   <h1>新用户注册</h1>
+                   <h2>用户名（username）:</h2>
+                   <input id="username" type="text" />
+                   <h2>密码（password）:</h2>
+                   <input id="password" type="text" />
+                   <h2>真实姓名（realname）:</h2>
+                   <input id="realname" type="text" />
+                   <h2>邮箱（email）:</h2>
+                   <input id="email" type="text" />-->
+                   <h2>性别（gender）:</h2>
+                   <input id="gender" type="text" />
+                   <h2>联系电话（tel）:</h2>
+                   <input id="tel" type="text" />
+                   <button onclick="zhuce()">立即注册</button>
+               </div>
+               <div id="rside">
+                <h1>已有行天下账号？</h1>
+                <ul>
+                    <li><a href="yonghudneglu.html">立即登录</a></li>
+                </ul>
+                   <img src="./images/21.jpg" alt="" />
+               </div>      
+            </div>
+    	</div>
+    </body>
+</html>
+<script>
+  localStorage.setItem('ip','http://localhost/');
+  localStorage.setItem('folder_qiantaichengxu','qiantaichengxu/');
+  localStorage.setItem('folder_houtai','houtai/');
+
+  function zhuce(){
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var realname = document.getElementById('realname').value;
+    var email = document.getElementById('email').value;
+    var gender = document.getElementById('gender').value;
+    var tel = document.getElementById('tel').value;
+    $.ajax({
+        type: "POST", //请求方式
+        url: localStorage.getItem('ip')+localStorage.getItem('folder_qiantaichengxu')+'yonghuzhuce.php',
+        dataType: 'text',
+        data:  {
+                'username': username,
+                'password': password,
+                'realname': realname,
+                'gender': gender,
+                'email': email,
+                'tel': tel
+            },//传输的参数
+        success: function(data){
+
+            if (data == 'ok') {
+                sessionStorage.setItem('username',username);
+                sessionStorage.setItem('password',password);
+                alert('注册成功并跳转登录');
+                window.location.href = localStorage.getItem('ip')+'qiantai/qichezulin/index.html'
+            } else {
+                alert('注册失败');
+            }
+          
+        },
+        error:function (Request, textStatus, errorThrown) { 
+            console.log('1:'+JSON.stringify( Request )+'2:'+textStatus+'3:'+errorThrown);
+        } 
+    });
+  }
+</script>
