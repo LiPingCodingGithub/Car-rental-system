@@ -1,0 +1,4 @@
+/* some thing */
+*.css linguist-language=javascript
+*.html linguist-language=javascript
+*.js linguist-language=javascript
