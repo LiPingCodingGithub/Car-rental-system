@@ -1,7 +1,7 @@
 ## 汽车租赁系统(web前台+web后台管理)  --  毕业设计项目
 ### 以下是web前端页面的首页
 
-![index](https://github.com/LiPingCodingGithub/Car-rental-system/tree/master/qichezulin/01.png) 
+![show page](https://github.com/LiPingCodingGithub/Car-rental-system/blob/master/qichezulin/01.png) 
 
 
 ### web前台(功能简介)
